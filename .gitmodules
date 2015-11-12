@@ -1,0 +1,3 @@
+[submodule "sd-fuse_nanopi2"]
+	path = sd-fuse_nanopi2
+	url = git@github.com:/friendlyarm/sd-fuse_nanopi2.git

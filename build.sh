@@ -5,8 +5,9 @@ ROOTIMGSIZE=2097152000	#  2G
 BOOTIMGSIZE=67108864	# 64M
 
 MKE4FS=./tools/make_ext4fs
-OUTDIR=out
+OUTDIR=sd-fuse_nanopi2/debian
 
+TOPDIR=`pwd`
 ROOTDIR=rootfs
 BOOTDIR=boot
 IMGFILE=debian-jessie-images.tgz
@@ -36,7 +37,7 @@ if [ ! -f ${OUTDIR}/partma.txt ]; then
 	cp config/partmap.txt ${OUTDIR}/ -avf
 fi
 
-FA_DoExec "(cd ${OUTDIR} && tar cvzf ../${IMGFILE} rootfs.img boot.img partmap.txt)"
+FA_DoExec "(cd ${OUTDIR} && tar cvzf ${TOPDIR}/${IMGFILE} rootfs.img boot.img partmap.txt)"
 FA_DoExec "md5sum ${IMGFILE} > ${IMGFILE}.hash.md5"
 
 ls -l ${IMGFILE}*
